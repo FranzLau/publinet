@@ -1,0 +1,228 @@
+.dataTables_wrapper {
+  padding-left: 0!important;
+  padding-right: 0!important;
+  font-size: .80rem!important;
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.badge {
+  border-radius: 0.25rem!important;
+  color: #ffffff!important;
+}
+.badge-warning {
+  color: #212529!important;
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.btn-xs {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ESTILO PARA NAVS <<<<<<<<<<<<<<<<<<<<<*/
+.btn-link-edit {
+  transition: 0.3s;
+  opacity: 0.8;
+  color: #f6c23e!important;
+}
+.btn-link-edit:hover {
+  opacity: 1;
+}
+.btn-link-delete {
+  transition: 0.3s;
+  opacity: 0.8;
+  color:#e74a3b!important;
+}
+.btn-link-delete:hover{
+  opacity: 1;
+}
+.btn-link-view {
+  transition: 0.3s;
+  opacity: 0.8;
+  color: #36b9cc!important;
+}
+.btn-link-view:hover{
+  opacity: 1;
+}
+/* ------------ estilos para el nav  ----------*/
+
+.nav-pills .nav-link.active {
+  background: none!important;
+  border-bottom: 3px solid #e74a3b!important;
+  border-radius: 0!important;
+}
+
+.nav-pills .nav-link {
+  color: #e74a3b!important;
+  font-weight: 700!important;
+  padding: 0.25rem 0.5rem!important;
+  margin-right: 15px!important;
+}
+
+@media (min-width: 1200px) {
+  .text-xl-start {
+    text-align: left!important;
+  }
+}
+.feature {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  width: 4rem;
+  font-size: 2rem;
+}
+
+.rounded-3 {
+  border-radius: 0.5rem;
+}
+
+/*--boton para cerra modal--///////////////////////////////*/
+.btn-outline-primary {
+  color: #4e73df;
+  background-color: transparent;
+  background-image: none;
+  border-color: #4e73df;
+}
+
+.btn-outline-primary:hover {
+  color: #ffffff;
+  background-color: #4e73df;
+  border-color: #007bff;
+}
+
+.btn-outline-primary:focus,
+.btn-outline-primary.focus {
+  box-shadow: 0 0 0 3px rgb(0 123 255 / 50%);
+}
+
+/*---- ESTILOS PARA select 2---*/
+
+.select2-container--default .select2-selection--single {
+  border: 1px solid #d1d3e2!important;
+  border-radius: 0.2rem!important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #6e707e!important;
+}
+
+.select2-container .select2-selection--single {
+  height: 30px!important;
+}
+
+/*---- ESTILOS PARA RADIO---*/
+.radio {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.radio-info {
+  width: 30%;
+}
+.radio-estate {
+  width: 45%;
+}
+
+.radio input[type="radio"]{
+  display: none;
+}
+
+.radio label {
+  color: #6e707e;
+  border: 1px solid #d1d3e2;
+  padding: 0.25rem 0.5rem 0.25rem 2.063rem;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.radio label:hover {
+  background:rgba(0, 116, 217, 0.1);
+}
+
+.radio label:before {
+  content: "";
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  border-radius: 50%;
+  background: none;
+  border: 1px solid #6e707e;
+  position: absolute;
+  left: 8px;
+}
+
+.radio input[type="radio"]:checked + label {
+  background-color: rgba(37, 57, 111, 0);
+  border: 1px solid #25396f;
+  color: #25396f;
+  font-weight: bold;
+}
+
+.radio input[type="radio"]:checked + label:before {
+  width: 15px;
+  height: 15px;
+  border: 3px solid #25396f;
+  background-color: rgba(37, 57, 111, 0);
+}
+
+/* Estilos para modales */
+.modal-title {
+  font-size: 1.1rem!important;
+  font-weight: 700!important;
+}
+.modal-header {
+  border-bottom: 2px solid #e3e6f0!important;
+}
+.form-control-sm {
+  border-radius: 0.5rem!important;
+}
+
+/* Estilos para titulos */
+.page-title .page-title-icon {
+  font-size: 1.2rem;
+  display: flex;
+  padding: 0.83333rem;
+  margin: 0 30px 0 0;
+  background: #4e73df;
+  color: #ffffff;
+  border-radius: 0.25rem;
+  width: 50px;
+  height: 50px;
+}
+.page-title .page-title-heading span {
+  padding: 3px 0 0;
+  font-size: .88rem;
+  opacity: .6;
+}
+
+/* estilos para border top */
+.border-top-success {
+  border-top: 0.25rem solid #1cc88a;
+}
+
+.border-top-primary {
+  border-top: 0.25rem solid #4e73df;
+}
+
+.border-top-warning {
+  border-top: 0.25rem solid #f6c23e;
+}
+
+.border-top-danger {
+  border-top: 0.25rem solid #e74a3b;
+}
+/* estilos para breadcrumb */
+
+.breadcrumb {
+  padding: 8px 15px!important;
+  border-radius: 3px!important;
+}
+
+.breadcrumb li a{
+  color: #5a5c69!important;
+}
