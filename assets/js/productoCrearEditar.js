@@ -15,16 +15,14 @@ jQuery(document).ready(function() {
 		  	return false;
 		}
 
-		//Crear el formData desde el formulario completo (inlcuye archivos)
-		const formData = new FormData($('#formRegProducto')[0]);
+		
+		const datos=$('#formRegProducto').serialize();
 		
 		$.ajax({
 			url: '../../public/procesos/producto/crearProducto.php',
 			type: 'POST',
 			dataType: 'json',
-			data: formData,
-			processData: false,
-			contentType: false,
+			data: datos,
 			success:function(res){
 
 				if (res.error) {
@@ -42,7 +40,9 @@ jQuery(document).ready(function() {
 						timer: 1500
 					});
 					setTimeout(() => {
-						window.location.href = '../../public/views/producto.php';
+						$('#tablaProductos').load('../componentes/tablaProductos.php');
+						$('#formRegProducto')[0].reset();
+						$('#modalAgregarProducto').modal('hide');
 					}, 1500);
 				}
 			},

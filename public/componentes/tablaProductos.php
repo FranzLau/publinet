@@ -10,15 +10,14 @@
     <thead class="thead-dark">
       <tr>
         <th>#</th>
-        <th>FOTO</th>
         <th>CATEGORIA</th>
         <th>NOMBRE</th>
         <th>DETALLES</th>
         <th>MARCA</th>
         <th>MODELO</th>
         <th>STOCK</th>
-        <th>PRECIO EQUIPO</th>
-        <th>PRECIO COMPLETO</th>
+        <th>PRECIO</th>
+        <th>PRECIO 2</th>
         <th class="text-center">ACCIONES</th>
       </tr>
     </thead>
@@ -29,7 +28,6 @@
       ?>
       <tr>
         <td><?php echo $numero++ ?></td>
-        <td><img src="../<?php echo $mostrarprod[9]; ?>" width="50" height="50" style="object-fit: cover; border-radius: 5px;"></td>
         <td><?php echo $obj->nomCategoria( $mostrarprod[1]) ?></td>
         <td><?php echo $mostrarprod[2] ?></td>
         <td><?php echo $mostrarprod[3] ?></td>

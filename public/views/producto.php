@@ -9,7 +9,7 @@
   </head>
   <body id="page-top">
 
-    <?php //include('../modal/modalNuevoProducto.php'); ?>
+    <?php include('../modal/modalNuevoProducto.php'); ?>
     <?php include('../modal/modalEditarProducto.php'); ?>
     
     <!-- Page Wrapper -->
@@ -40,12 +40,12 @@
                   <li class="breadcrumb-item active" aria-current="page">Productos</li>
                 </ol>
               </nav>
-              <!--
-              <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" data-toggle="modal" data-target="#modalAgregarProducto"><i class="fa-solid fa-circle-plus text-white-50 mr-2"></i>Agregar Producto</a>-->
-              <a href="agregarProducto.php" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
+              
+              <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" data-toggle="modal" data-target="#modalAgregarProducto"><i class="fa-solid fa-circle-plus text-white-50 mr-2"></i>Agregar Producto</a>
+              <!--<a href="agregarProducto.php" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
                 <i class="fa-solid fa-circle-plus text-white-50"></i>
                 Agregar Producto
-              </a>
+              </a>-->
               <a href="categorias.php" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm"><i class="fa-solid fa-gear text-white-50 mr-2"></i>Config. Categorias</a>
             </div>
             <!-- End Page title -->

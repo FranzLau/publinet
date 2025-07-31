@@ -67,7 +67,6 @@ create table producto(
     stock_prod int,
     precio_equipo decimal(10,2) not null,
     precio_full decimal(10,2) not null,
-    imagen_prod varchar(255),
     fecha_captura date,
     primary key(id_prod)
 );

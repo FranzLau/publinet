@@ -29,51 +29,15 @@
 	}
 	$stmtCheck->close();
 
-	// Subida de imagen
-	$rutaImagen = null;
-
-	if (isset($_FILES['addImagen']) && $_FILES['addImagen']['error'] === 0) {
-
-		$tmpName = $_FILES['addImagen']['tmp_name'];
-		$originalName = basename($_FILES['addImagen']['name']);
-		$ext = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
-		$permitidas = ['jpg', 'jpeg', 'png', 'webp'];
-
-		if (!in_array($ext, $permitidas)) {
-			echo json_encode(['error' => true, 'mensaje' => 'Formato de imagen no permitido']);
-			exit;
-		}
-
-		if ($_FILES['addImagen']['size'] > 2 * 1024 * 1024) {
-			echo json_encode(['error' => true, 'mensaje' => 'La imagen excede los 2MB']);
-			exit;
-		}
-
-		$nuevoNombre = uniqid('img_') . '.' . $ext;
-		$directorioDestino = '../../uploads/';
-		$rutaServidor = $directorioDestino . $nuevoNombre;
-
-		if (!is_dir($directorioDestino)) {
-			mkdir($directorioDestino, 0755, true);
-		}
-
-		if (!move_uploaded_file($tmpName, $rutaServidor)) {
-			echo json_encode(['error' => true, 'mensaje' => 'Error al guardar la imagen']);
-			exit;
-		}
-
-		$rutaImagen = 'uploads/' . $nuevoNombre; // Esta se guarda en la BD
-	}
-
 	// Preparar la consulta
-	$stmc = $con->prepare("INSERT INTO producto (id_categoria,nom_prod,descripcion_prod,marca_prod,modelo_prod,stock_prod,precio_equipo,precio_full,imagen_prod,fecha_captura) VALUES (?,?,?,?,?,?,?,?,?,?)");
+	$stmc = $con->prepare("INSERT INTO producto (id_categoria,nom_prod,descripcion_prod,marca_prod,modelo_prod,stock_prod,precio_equipo,precio_full,fecha_captura) VALUES (?,?,?,?,?,?,?,?,?)");
 
 	if (!$stmc) {
 		echo json_encode(['error' => true, 'mensaje' => 'Error al preparar consulta']);
 		exit;
 	}
 
-	$stmc->bind_param("issssiddss",$idCategoria,$nombProducto,$descProducto,$marcaProducto,$modeloProducto,$stockProducto,$precioEquipoProducto,$precioFullProducto,$rutaImagen,$fechaCaptura);
+	$stmc->bind_param("issssidds",$idCategoria,$nombProducto,$descProducto,$marcaProducto,$modeloProducto,$stockProducto,$precioEquipoProducto,$precioFullProducto,$fechaCaptura);
 
 	if ($stmc->execute()) {
 		echo json_encode(['error' => false, 'mensaje' => 'Producto registrado correctamente']);
