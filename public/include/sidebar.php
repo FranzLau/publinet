@@ -35,13 +35,39 @@
             <span>Categorias</span>
         </a>
     </li>
+    
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    <!-- SECCION PARA VENTAS -->
+     <!-- Heading -->
+    <div class="sidebar-heading">
+        Ventas
+    </div>
+     
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Caja</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Seccion Caja:</h6>
+                <a class="collapse-item" href="buttons.html">Aperturar Caja</a>
+                <a class="collapse-item" href="cards.html">Movimientos</a>
+            </div>
+        </div>
+    </li>
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="sede.php">
-            <i class="fa-solid fa-map-location-dot"></i>
-            <span>Sedes</span>
+        <a class="nav-link" href="#">
+            <i class="fa-solid fa-dolly"></i>
+            <span>VENTA</span>
         </a>
     </li>
+
 
     <!-- MENU EXCLUSIVO PARA ADMIN -->
     <?php if ($rol_id == 1): ?>
@@ -60,6 +86,13 @@
         <a class="nav-link" href="usuarios.php">
             <i class="fa-solid fa-users"></i>
             <span>Usuarios</span>
+        </a>
+    </li>
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+        <a class="nav-link" href="sede.php">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <span>Sedes</span>
         </a>
     </li>
     <?php endif; ?>

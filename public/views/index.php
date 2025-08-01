@@ -25,6 +25,12 @@
               </nav>
             </div>
             <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+            <div class="row">
+              <div class="col-sm-12">
+                <h1 class="h3 mb-1 text-gray-800"><i class="fa-solid fa-chart-pie mr-2"></i>Dashboard</h1>
+                <p>Bienvenido al panel principal</p>
+              </div>
+            </div>
             <!-- Content Row -->
             <div class="row">
 
