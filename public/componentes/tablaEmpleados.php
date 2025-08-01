@@ -24,7 +24,7 @@
           ?>
           <tr>
               <td class="text-center"><?php echo $mostrar[0] ?></td>
-              <td> <span class="badge badge-primary"><i class="fas fa-user mr-2"></i>Publigraff</span> </td>
+              <td><span class="badge badge-primary"><i class="fas fa-user mr-2"></i>Publigraff</span> </td>
               <td><?php echo $mostrar[2] ?> <?php echo $mostrar[3] ?></td>
               <td><?php echo $obj->nomCargo( $mostrar[1]) ?></td>
               <td><?php echo $mostrar[4] ?></td>

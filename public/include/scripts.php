@@ -28,6 +28,7 @@
 <script src="../../assets/js/cargoCrearEditar.js"></script>
 <script src="../../assets/js/areaCrearEditar.js"></script>
 <script src="../../assets/js/gerenciaCrearEditar.js"></script>
+<script src="../../assets/js/cajaCrearEditar.js"></script>
 
 <!-- Funcion para validar formulario -->
 <script src="../../assets/js/helpers.js"></script>

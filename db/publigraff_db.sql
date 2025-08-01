@@ -70,3 +70,14 @@ create table producto(
     fecha_captura date,
     primary key(id_prod)
 );
+
+create table caja (
+    id_caja int auto_increment,
+    id_usuario int not null,
+    fecha_apertura DATETIME,
+    fecha_cierre DATETIME NULL,
+    monto_inicial DECIMAL(10,2),
+    monto_final DECIMAL(10,2) NULL,
+    estado_caja varchar(10),
+    primary key(id_caja)
+);
