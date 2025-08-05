@@ -29,7 +29,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small font-weight-bold">
-                <?php echo htmlspecialchars($usuario); ?>
+                Hola, <?php echo htmlspecialchars($usuario); ?>
                 </span>
                 <img class="img-profile rounded-circle" src="../../assets/img/registermen.png" width="32" height="32">
             </a>
