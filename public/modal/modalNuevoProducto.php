@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title fs-5" id="ModalNewProd">
-          <i class="fa-solid fa-store mr-2"></i>Agregar Producto
+          <i class="fa-solid fa-box-open mr-2"></i>Agregar Producto
         </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -39,7 +39,7 @@
               </div>
               <div class="form-group">
                 <label for="descProd" class="col-sm-3 col-form-label col-form-label-sm">Descripcion:</label>
-                <textarea class="form-control" name="descProd" id="descProd" rows="3"></textarea>
+                <textarea class="form-control" name="descProd" id="descProd" rows="2"></textarea>
               </div>
             </div>
           </div>
@@ -48,14 +48,15 @@
             <div class="card-body">
               <h6 class="m-0 font-weight-bold text-primary">Detalles de producto</h6>
               <div class="form-row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                   <label for="addMarcaProd" class="col-form-label col-form-label-sm">Marca:</label>
                   <input type="text" class="form-control form-control-sm" id="addMarcaProd" name="addMarcaProd">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                   <label for="addModeloProd" class="col-form-label col-form-label-sm">Modelo:</label>
                   <input type="text" class="form-control form-control-sm" id="addModeloProd" name="addModeloProd">
                 </div>
+                
               </div>
             </div>
           </div>
@@ -86,7 +87,7 @@
         <button type="button" class="btn  btn-sm btn-secondary" data-dismiss="modal">
           <i class="fa-solid fa-xmark fa-sm text-white-50 mr-2"></i>Cancelar
         </button>
-        <button type="button" class="btn btn-sm btn-primary" id="btnGuardarProducto">
+        <button type="button" class="btn btn-sm btn-success" id="btnGuardarProducto">
           <i class="fa-sharp fa-solid fa-floppy-disk fa-sm text-white-50 mr-2"></i>Guardar
         </button>
       </div>

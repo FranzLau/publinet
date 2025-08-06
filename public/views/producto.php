@@ -45,14 +45,14 @@
             </div>
             <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-              <h1 class="h3 mb-0 text-gray-800"><i class="fa-solid fa-store mr-2"></i>Productos</h1>
+              <h1 class="h3 mb-0 text-gray-800"><i class="fa-solid fa-box-open mr-2"></i>Productos</h1>
               <div class="d-none d-sm-inline-block">
                 <a href="#" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#modalAgregarProducto">
                   <i class="fa-solid fa-circle-plus text-white-50 mr-2"></i>
                   Agregar Producto
                 </a>
                 <a href="categorias.php" class="btn btn-sm btn-info shadow-sm">
-                  <i class="fa-solid fa-gear text-white-50 mr-2"></i>
+                  <i class="fa-solid fa-boxes-stacked text-white-50 mr-2"></i>
                   Mis Categorias
                 </a>
               </div>
@@ -67,7 +67,7 @@
                 <div id="tablaProductos"></div>
               </div>
             </div>
-          
+            <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
           </div>
         </div>
         <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->

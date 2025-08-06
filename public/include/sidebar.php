@@ -24,50 +24,46 @@
     <!-- Nav Item - Tables -->    
     <li class="nav-item">
         <a class="nav-link" href="producto.php">
-            <i class="fas fa-cube mr-2"></i>
+            <i class="fas fa-box-open"></i>
             <span>Productos</span>
         </a>
     </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        VENTAS
+    </div>
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="categorias.php">
-            <i class="fa-solid fa-dolly"></i>
-            <span>Categorias</span>
+        <a class="nav-link" href="venta.php">
+            <i class="fa-solid fa-store"></i>
+            <span>Ventas</span>
         </a>
     </li>
-    
-
+     <!-- Nav Item - Tables -->
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fa-solid fa-dolly"></i>
+            <span>Movimientos</span>
+        </a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider">
     <!-- SECCION PARA VENTAS -->
      <!-- Heading -->
     <div class="sidebar-heading">
-        Ventas
+        CAJA
     </div>
      
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Contabilidad</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Seccion Caja:</h6>
-                <a class="collapse-item" href="caja.php">Aperturar Caja</a>
-                <a class="collapse-item" href="#">Movimientos</a>
-            </div>
-        </div>
-    </li>
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="ventas.php">
-            <i class="fa-solid fa-dolly"></i>
-            <span>VENTA</span>
+        <a class="nav-link" href="#">
+            <i class="fa-solid fa-cash-register"></i>
+            <span>Registro de Caja</span>
         </a>
     </li>
-
 
     <!-- MENU EXCLUSIVO PARA ADMIN -->
     <?php if ($rol_id == 1): ?>
@@ -88,6 +84,15 @@
             <span>Usuarios</span>
         </a>
     </li>
+    
+    <?php endif; ?>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Ubicacion
+    </div>
     <!-- Nav Item - Tables -->
     <li class="nav-item">
         <a class="nav-link" href="sede.php">
@@ -95,10 +100,6 @@
             <span>Sedes</span>
         </a>
     </li>
-    <?php endif; ?>
-
-
-
     <!-- Divider -->
     <hr class="sidebar-divider">
     <!-- Heading -->

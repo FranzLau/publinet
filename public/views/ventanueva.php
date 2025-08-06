@@ -35,9 +35,9 @@
             <div class="page-title mb-4">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.php"><i class="fa-solid fa-house mr-2"></i>Inicio</a></li>
-                        <li class="breadcrumb-item"><a href="empleados.php">Ventas</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Nueva</li>
+                        <li class="breadcrumb-item"><a href="index.php"><i class="fa-solid fa-house mr-2"></i></a></li>
+                        <li class="breadcrumb-item"><a href="venta.php">Ventas</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Registro de Venta</li>
                     </ol>
                 </nav>
             </div>
@@ -72,10 +72,6 @@
                                         <input type="text" class="form-control form-control-sm" id="clienteVenta" name="">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="clienteVenta" class="col-form-label col-form-label-sm">Observaciones:</label>
-                                    <input type="text" class="form-control form-control-sm" id="clienteVenta" name="">
-                                </div>
                             </form>
                         </div>
                     </div>
@@ -92,7 +88,7 @@
                     <div class="card border-top-warning">
                         <div class="card-body">
                             <h6 class="m-0 font-weight-bold text-primary mb-4">Buscar Producto</h6>
-                            <div id="tabla-buscar-prod"></div>
+                            <div id="tablaBuscarProd"></div>
                         </div>
                     </div>
                 </div>
@@ -117,7 +113,7 @@
     <?php include('../include/scripts.php'); ?>
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#tabla-buscar-prod').load('../componentes/tablaProductoVenta.php');
+        $('#tablaBuscarProd').load('../componentes/tablaProductoVenta.php');
       });
     </script>
    

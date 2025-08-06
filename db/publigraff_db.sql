@@ -81,3 +81,50 @@ create table caja (
     estado_caja varchar(10),
     primary key(id_caja)
 );
+
+CREATE TABLE imagen (
+    id_imagen INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_imagen VARCHAR(500) NOT NULL,
+    ruta_imagen VARCHAR(255) NOT NULL,
+    fecha_subida DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tablas para el modulo de ventas
+-- TABLA PARA VENTA
+CREATE TABLE venta (
+    id_venta INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_caja INT NOT NULL,
+    fecha_venta DATETIME,
+    total_venta DECIMAL(10,2),
+    tipo_pago VARCHAR(50),
+    abono_venta DECIMAL(10,2),
+    saldo_venta DECIMAL(10,2),
+    estado_venta VARCHAR(50),
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
+    FOREIGN KEY (id_caja) REFERENCES caja(id_caja)
+);
+
+CREATE TABLE detalleventa (
+    id_detalleventa INT AUTO_INCREMENT PRIMARY KEY,
+    id_venta INT NOT NULL,
+    id_prod INT NOT NULL,
+    cantidad INT,
+    precio_unitario DECIMAL(10,2),
+    subtotal DECIMAL(10,2),
+    FOREIGN KEY (id_venta) REFERENCES venta(id_venta),
+    FOREIGN KEY (id_prod) REFERENCES producto(id_prod)
+);
+
+CREATE TABLE movimiento (
+    id_movimiento INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_caja INT NOT NULL,
+    fecha_movimiento DATETIME DEFAULT NOW(),
+    tipo_movimiento VARCHAR(50),
+    detalle_movimiento VARCHAR(200),
+    monto_movimiento DECIMAL(10,2),
+    tipo_pago VARCHAR(50),
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
+    FOREIGN KEY (id_caja) REFERENCES caja(id_caja)
+);
