@@ -56,21 +56,6 @@ create table sede(
     ciudad_sede varchar(50),
     primary key(id_sede)
 );
-
-create table producto(
-    id_prod int auto_increment,
-    id_categoria int not null,
-    nom_prod varchar(200),
-    descripcion_prod TEXT,
-    marca_prod varchar(50),
-    modelo_prod varchar(50),
-    stock_prod int,
-    precio_equipo decimal(10,2) not null,
-    precio_full decimal(10,2) not null,
-    fecha_captura date,
-    primary key(id_prod)
-);
-
 create table caja (
     id_caja int auto_increment,
     id_usuario int not null,
@@ -80,6 +65,23 @@ create table caja (
     monto_final DECIMAL(10,2) NULL,
     estado_caja varchar(10),
     primary key(id_caja)
+);
+
+CREATE TABLE producto (
+    id_prod INT AUTO_INCREMENT PRIMARY KEY,
+    id_categoria INT NOT NULL,
+    id_imagen INT, -- Se recomienda permitir NULL al inicio
+    nom_prod VARCHAR(200) NOT NULL,
+    descripcion_prod TEXT,
+    marca_prod VARCHAR(100),
+    modelo_prod VARCHAR(100),
+    stock_prod INT DEFAULT 0,
+    precio_equipo DECIMAL(10,2) NOT NULL,
+    precio_full DECIMAL(10,2) NOT NULL,
+    fecha_captura DATETIME,
+    -- Claves foráneas
+    FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria),
+    FOREIGN KEY (id_imagen) REFERENCES imagenes(id_imagen)
 );
 
 CREATE TABLE imagen (

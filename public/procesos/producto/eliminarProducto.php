@@ -1,8 +1,12 @@
 <?php
+	header('Content-Type: application/json');
 	require '../../../config/conexion.php';
-	require '../../../config/crud.php';
+	require '../../../modelos/Producto.php';
 
-	$obj = new crud();
-	echo $obj->eliminarProducto($_POST['idprod']);
+	$idprod = $_POST['id_prod'] ?? 0;
 
+	$producto = new Producto($con);
+	$resultado = $producto->eliminarProducto($idprod);
+
+	echo json_encode($resultado);
  ?>

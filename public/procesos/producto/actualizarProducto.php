@@ -1,41 +1,24 @@
 <?php
+	header('Content-Type: application/json');
 	require '../../../config/conexion.php';
+	require '../../../modelos/Producto.php';
 
-	$IdProd =$_POST['idEditarProducto'];
+	$IdProd = intval($_POST['idEditarProducto'] ?? 0);
+
+	$datos = [
+		'id_categoria' 		=> intval($_POST['categEditarProd'] ?? 0),
+		'nom_prod' 			=> trim($_POST['nomEditarProd'] ?? ''),
+		'descripcion_prod' 	=> trim($_POST['descEditarProd'] ?? ''),
+		'marca_prod' 		=> trim($_POST['marcaEditarProd'] ?? ''),
+		'modelo_prod' 		=> trim($_POST['modeloEditarProd'] ?? ''),
+		'stock_prod' 		=> intval($_POST['cantEditarProd'] ?? 0),
+		'precio_equipo'		=> floatval($_POST['precio1EditarProd'] ?? 0),
+		'precio_full' 		=> floatval($_POST['precio2EditarProd'] ?? 0)
+	];
 	
-	$EditarNomProd = $_POST['nomEditarProd'];
-	$EditarDescProd = $_POST['descEditarProd'];
-	$EditarIdCateg = $_POST['categEditarProd'];
-	$EditarMarcaProd = $_POST['marcaEditarProd'];
-	$EditarModeloProd = $_POST['modeloEditarProd'];
-	$EditarPrecioProd = $_POST['precio1EditarProd'];
-	$EditarPrecio2Prod = $_POST['precio2EditarProd'];
-	$EditarCantProd = $_POST['cantEditarProd'];
-	
-	// verificamos que el modelo de producto ya exista
-	$verificar = $con->prepare("SELECT 1 FROM producto WHERE modelo_prod = ? AND id_prod != ?");
-	$verificar->bind_param("si", $EditarModeloProd, $IdProd);
-	$verificar->execute();
-	$verificar->store_result();
+	$producto = new Producto($con);
+	$resultado = $producto->editarProducto($IdProd, $datos, $_FILES['imgNuevaEditar'] ?? null);
 
-	if ($verificar->num_rows > 0) {
-		echo json_encode(['error' => true, 'mensaje' => 'Ya existe un producto de ese Modelo']);
-		$verificar->close();
-		exit;
-	}
-	$verificar->close();
+	echo json_encode($resultado);
 
-	// 1. Actualizar Producto
-	$update = $con->prepare("UPDATE producto SET id_categoria = ?, nom_prod = ?, descripcion_prod = ?, marca_prod = ?, modelo_prod = ?, stock_prod = ?, precio_equipo = ?, precio_full = ? WHERE id_prod = ?");
-	$update->bind_param("issssiddi",$EditarIdCateg,$EditarNomProd,$EditarDescProd,$EditarMarcaProd,$EditarModeloProd,$EditarCantProd,$EditarPrecioProd,$EditarPrecio2Prod,$IdProd);
-
-	if (!$update->execute()) {
-		// Si hubo un error al ejecutar la consulta, muestra un mensaje de error
-		echo json_encode(['error' => true, 'mensaje' => 'Error al actualizar Producto']);
-		exit; 
-	}
-
-	// Empleado actualziado correctamente.
-	echo json_encode(['error' => false, 'mensaje' => 'Producto actualizado correctamente']); 
-	$con->close();
 ?>

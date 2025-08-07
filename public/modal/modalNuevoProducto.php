@@ -12,70 +12,93 @@
       </div>
       <div class="modal-body">
         <!--***************************   INICIO DEL FORMULARIO   ***********************-->
-        <form id="formRegProducto" class="formRegProducto">
+        <form id="formRegProducto" class="formRegProducto" enctype="multipart/form-data">
 
-          <div class="card mb-3">
-            <div class="card-body">
-              <h6 class="m-0 font-weight-bold text-primary">Informacion General</h6>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="addNomProd" class="col-form-label col-form-label-sm">Nombre:</label>
-                  <input type="text" class="form-control form-control-sm" name="addNomProd" id="addNomProd">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="addCategProd" class="col-form-label col-form-label-sm">Categoria:</label>
-                  <select class="custom-select custom-select-sm" id="addCategProd" name="addCategProd" style="width:100%">
-                    <option value="" selected disabled>Elegir...</option>
-                    <?php $ctg = $con->query("SELECT * FROM categoria");
-                      while ($row = $ctg->fetch_assoc()) {
-                        echo "<option value='".$row['id_categoria']."' ";
-                        echo ">";
-                        echo $row['nom_categoria'];
-                        echo "</option>";
-                      }
-                    ?>
-                  </select>
+
+          <div class="row">
+            <!--********* PRIMERA COLUMNA ************-->
+            <div class="col-sm-6">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h6 class="m-0 font-weight-bold text-primary">Informacion General</h6>
+                  <div class="form-group">
+                    <label for="addNomProd" class="col-form-label col-form-label-sm">Nombre:</label>
+                    <input type="text" class="form-control form-control-sm" name="addNomProd" id="addNomProd">
+                  </div>
+                  <div class="form-group">
+                    <label for="descProd" class="col-form-label col-form-label-sm">Descripcion:</label>
+                    <textarea class="form-control" name="descProd" id="descProd" rows="3"></textarea>
+                  </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="descProd" class="col-sm-3 col-form-label col-form-label-sm">Descripcion:</label>
-                <textarea class="form-control" name="descProd" id="descProd" rows="2"></textarea>
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h6 class="m-0 font-weight-bold text-primary">Detalles</h6>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="addMarcaProd" class="col-form-label col-form-label-sm">Marca:</label>
+                      <input type="text" class="form-control form-control-sm" id="addMarcaProd" name="addMarcaProd">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="addModeloProd" class="col-form-label col-form-label-sm">Modelo:</label>
+                      <input type="text" class="form-control form-control-sm" id="addModeloProd" name="addModeloProd">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h6 class="m-0 font-weight-bold text-primary">Precios ( s/. )</h6>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="addPrecEqProd" class="col-form-label col-form-label-sm">Precio Equipo:</label>
+                      <input type="text" class="form-control form-control-sm" id="addPrecEqProd" name="addPrecEqProd" placeholder="s/">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="addPrecioFullProd" class="col-form-label col-form-label-sm">Precio Full:</label>
+                      <input type="text" class="form-control form-control-sm" id="addPrecioFullProd" name="addPrecioFullProd" placeholder="s/">
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div class="card mb-3">
-            <div class="card-body">
-              <h6 class="m-0 font-weight-bold text-primary">Detalles de producto</h6>
-              <div class="form-row">
-                <div class="form-group col-md-3">
-                  <label for="addMarcaProd" class="col-form-label col-form-label-sm">Marca:</label>
-                  <input type="text" class="form-control form-control-sm" id="addMarcaProd" name="addMarcaProd">
+            <!--********* PRIMERA COLUMNA ************-->
+            <div class="col-sm-6">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h6 class="m-0 font-weight-bold text-primary">Imagen de producto</h6>
+                  <div class="form-group">
+                    <label for="imagen" class="col-form-label col-form-label-sm">Imagen:</label>
+                    <input type="file" class="form-control-file" id="imagen" name="imagen" accept="image/*" required>
+                  </div>
                 </div>
-                <div class="form-group col-md-3">
-                  <label for="addModeloProd" class="col-form-label col-form-label-sm">Modelo:</label>
-                  <input type="text" class="form-control form-control-sm" id="addModeloProd" name="addModeloProd">
-                </div>
-                
               </div>
-            </div>
-          </div>
-
-          <div class="card mb-3">
-            <div class="card-body">
-              <h6 class="m-0 font-weight-bold text-primary">Precio y Stock</h6>
-              <div class="form-row">
-                <div class="form-group col-md-4">
-                  <label for="addPrecEqProd" class="col-form-label col-form-label-sm">Precio Equipo:</label>
-                  <input type="text" class="form-control form-control-sm" id="addPrecEqProd" name="addPrecEqProd" placeholder="s/">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h6 class="m-0 font-weight-bold text-primary">Categoria</h6>
+                  <div class="form-group">
+                    <label for="addCategProd" class="col-form-label col-form-label-sm">Categoria:</label>
+                    <select class="custom-select custom-select-sm" id="addCategProd" name="addCategProd" style="width:100%">
+                      <option value="" selected disabled>Elegir...</option>
+                      <?php $ctg = $con->query("SELECT * FROM categoria");
+                        while ($row = $ctg->fetch_assoc()) {
+                          echo "<option value='".$row['id_categoria']."' ";
+                          echo ">";
+                          echo $row['nom_categoria'];
+                          echo "</option>";
+                        }
+                      ?>
+                    </select>
+                  </div>
                 </div>
-                <div class="form-group col-md-4">
-                  <label for="addPrecioFullProd" class="col-form-label col-form-label-sm">Precio Full:</label>
-                  <input type="text" class="form-control form-control-sm" id="addPrecioFullProd" name="addPrecioFullProd" placeholder="s/">
-                </div>
-                <div class="form-group col-md-4">
-                  <label for="addStockProd" class="col-form-label col-form-label-sm">Cantidad:</label>
-                  <input type="number" class="form-control form-control-sm" id="addStockProd" name="addStockProd" placeholder="0">
+              </div>
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h6 class="m-0 font-weight-bold text-primary">Stock</h6>
+                  <div class="form-group">
+                    <label for="addStockProd" class="col-form-label col-form-label-sm">Cantidad:</label>
+                    <input type="number" class="form-control form-control-sm" id="addStockProd" name="addStockProd" placeholder="0">
+                  </div>
                 </div>
               </div>
             </div>

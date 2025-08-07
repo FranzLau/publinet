@@ -1,7 +1,5 @@
 <?php
-/**
- *
- */
+
 class data
 {
     public function nomCategoria($idcateg){
@@ -47,5 +45,4 @@ class data
 	}
 
 }
-
 ?>

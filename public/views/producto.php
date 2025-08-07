@@ -11,6 +11,7 @@
 
     <?php include('../modal/modalNuevoProducto.php'); ?>
     <?php include('../modal/modalEditarProducto.php'); ?>
+    <?php include('../modal/modalimagenProducto.php'); ?>
     
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -90,7 +91,12 @@
         $('#tablaProductos').load('../componentes/tablaProductos.php');
       });
     </script>
-    
+    <script>
+      function mostrarImagenModal(ruta) {
+        $('#imagenProductoModal').attr('src', ruta);
+        $('#modalImagenProducto').modal('show');
+      }
+    </script>
     <script type="text/javascript">
       function verDatosProducto(idprod){
         $.ajax({
@@ -119,6 +125,7 @@
               $('#cantEditarProd').val(r.datos.stock_prod);
               $('#precio1EditarProd').val(r.datos.precio_equipo);
               $('#precio2EditarProd').val(r.datos.precio_full);
+              $('#imagenActualEditar').attr('src', '../../' + r.datos.ruta_imagen);
             }
           },
           error: function (xhr) {
@@ -145,23 +152,31 @@
         }).then((result) => {
           if (result.isConfirmed) {
             $.ajax({
-            url: '../../public/procesos/producto/eliminarProducto.php',
-            type: 'POST',
-            data: "idprod=" + idprod,
-            success:function(r){
-              if (r==1) {
-                $('#tablaProductos').load('../componentes/tablaProductos.php');
-                Swal.fire(
-                    'Eliminado!',
-                    'Tu archivo ha sido eliminado.',
-                    'success'
-                  )
-              }else{
-                Swal.fire({
+              url: '../../public/procesos/producto/eliminarProducto.php',
+              type: 'POST',
+              data: {id_prod: idprod},
+              dataType: 'json',
+              success:function(r){
+                if (r.error) {
+                  
+                  Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'Hubo un error!'
-                    })
+                    text: r.mensaje
+                  });
+
+                } else {
+                  
+                  Swal.fire({
+                    icon: 'success',
+                    title: 'Felicidades',
+                    text: r.mensaje,
+                    showConfirmButton: false,
+                    timer: 1500
+                  }).then( ()=> {
+                    $('#tablaProductos').load('../componentes/tablaProductos.php');
+                  });
+
                 }
               }
             })

@@ -3,15 +3,19 @@
   require '../../config/conexion.php';
   require '../../config/data.php';
   $obj = new data();
-  $sql = $con->query("SELECT * FROM producto");
+  //$sql = $con->query("SELECT * FROM producto");
+  $sql = $con->query("SELECT p.id_prod, i.ruta_imagen, p.id_categoria, p.nom_prod, p.descripcion_prod, p.marca_prod, 
+                           p.modelo_prod, p.stock_prod, p.precio_equipo, p.precio_full  
+                    FROM producto p
+                    LEFT JOIN imagen i ON p.id_imagen = i.id_imagen");
  ?>
 <div class="table-responsive">
   <table class="table table-hover table-sm" id="tableProduc" width="100%" cellspacing="0">
     <thead class="thead-dark">
       <tr>
         <th>#</th>
+        <th>IMAGEN</th>
         <th>CATEGORIA</th>
-        <th>NOMBRE</th>
         <th>DETALLES</th>
         <th>MARCA</th>
         <th>MODELO</th>
@@ -28,14 +32,25 @@
       ?>
       <tr>
         <td><?php echo $numero++ ?></td>
-        <td><?php echo $obj->nomCategoria( $mostrarprod[1]) ?></td>
-        <td><?php echo $mostrarprod[2] ?></td>
-        <td><?php echo $mostrarprod[3] ?></td>
+        <td>
+          <?php if (!empty($mostrarprod[1])): 
+            $rutaImagen = "../../" . $mostrarprod[1]; // Ajusta según ruta real
+          ?>
+            <img src="<?php echo $rutaImagen ?>" 
+                width="60" height="60" style="cursor:pointer; object-fit:cover;" 
+                onclick="mostrarImagenModal('<?php echo $rutaImagen ?>')" 
+                alt="Imagen producto">
+          <?php else: ?>
+            <span>Sin imagen</span>
+          <?php endif; ?>
+        </td>
+        <td><?php echo $obj->nomCategoria( $mostrarprod[2]) ?></td>
         <td><?php echo $mostrarprod[4] ?></td>
         <td><?php echo $mostrarprod[5] ?></td>
-        <td><span class="badge badge-secondary"><?php echo $mostrarprod[6] ?></span></td>
-        <td><span class="badge badge-info">s/ <?php echo $mostrarprod[7] ?></span></td>
-        <td><span class="badge badge-success">s/ <?php echo $mostrarprod[8] ?></span></td>
+        <td><?php echo $mostrarprod[6] ?></td>
+        <td><span class="badge badge-secondary"><?php echo $mostrarprod[7] ?></span></td>
+        <td><span class="badge badge-info">s/ <?php echo $mostrarprod[8] ?></span></td>
+        <td><span class="badge badge-success">s/ <?php echo $mostrarprod[9] ?></span></td>
        
         <td class="text-center">
           

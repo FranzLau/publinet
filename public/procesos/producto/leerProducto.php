@@ -1,17 +1,17 @@
 <?php
+	header('Content-Type: application/json');
 	require '../../../config/conexion.php';
+	require '../../../modelos/Producto.php';
 	
 	$idprod = $_POST['id_prod'] ?? 0;
 
-	$consulta = $con->prepare("SELECT * FROM producto WHERE id_prod = ?");
-	$consulta->bind_param("i", $idprod);
-	$consulta->execute();
-	$result = $consulta->get_result();
+	$productoElegido = new Producto($con);
+	$resultado = $productoElegido->obtenerProducto($idprod);
 
-	if ($result->num_rows === 1) {
-		$producto = $result->fetch_assoc();
-		echo json_encode(['error' => false, 'datos' => $producto]);
+	if ($resultado) {
+		echo json_encode(['error' => false, 'datos' => $resultado]);
 	} else {
-		echo json_encode(['error' => true, 'mensaje' => 'Empleado no encontrado']);
+		echo json_encode(['error' => true, 'mensaje' => 'Producto no encontrado']);
 	}
+
  ?>

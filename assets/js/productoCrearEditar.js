@@ -15,16 +15,17 @@ jQuery(document).ready(function() {
 		  	return false;
 		}
 
-		
-		const datos=$('#formRegProducto').serialize();
+		const datos = new FormData(document.getElementById('formRegProducto'));
 		
 		$.ajax({
 			url: '../../public/procesos/producto/crearProducto.php',
 			type: 'POST',
 			dataType: 'json',
 			data: datos,
+			contentType: false,   // Necesario para FormData
+			processData: false,   // Necesario para FormData
 			success:function(res){
-
+				console.log('Respuesta del servidor:', res);
 				if (res.error) {
 					Swal.fire({
 						icon: 'error',
@@ -59,13 +60,15 @@ jQuery(document).ready(function() {
   //---------------------------UPDATE PRODUCTO---------------
   	$('#btnEditarProducto').click(function() {
 		
-		var datos=$('#formEditarProducto').serialize();
+		const datos = new FormData(document.getElementById('formEditarProducto'));
 		
 		$.ajax({
 			url: '../../public/procesos/producto/actualizarProducto.php',
 			type: 'POST',
 			dataType: 'json',
 			data: datos,
+			contentType: false,
+    		processData: false,
 			success:function(res){
 				if (res.error) {
 
